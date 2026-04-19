@@ -1,0 +1,396 @@
+.booking-page {
+  min-height: calc(100vh - 160px);
+  background: #f0f2f5;
+  padding: 40px 20px;
+}
+
+.booking-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.booking-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.booking-card h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1e293b;
+}
+
+.volunteer-info {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #fff5eb;
+  border-radius: 16px;
+  margin-bottom: 28px;
+}
+
+.volunteer-avatar {
+  width: 70px;
+  height: 70px;
+  background: #FF9933;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.volunteer-details h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.volunteer-details p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.form-group input, .form-group textarea {
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #FF9933;
+  box-shadow: 0 0 0 3px rgba(255,153,51,0.1);
+}
+
+.form-group small {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.confirm-btn {
+  padding: 14px;
+  background: #FF9933;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 20px;
+  max-width: 450px;
+  width: 90%;
+  z-index: 1001;
+}
+
+.modal-content {
+  padding: 32px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.modal-content p {
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-cancel, .modal-confirm {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-cancel {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.modal-confirm {
+  background: #FF9933;
+  color: white;
+}
+
+.success-icon {
+  font-size: 60px;
+  color: #10b981;
+  margin-bottom: 16px;
+}
+
+.waiting-box {
+  background: #fef3c7;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 20px 0;
+  color: #d97706;
+}
+
+.gotit-btn {
+  padding: 12px 24px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .booking-card {
+    padding: 24px;
+  }
+  
+  .volunteer-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+/* Booking Summary Styles */
+.booking-summary {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-icon {
+  color: #FF9933;
+  font-size: 18px;
+  width: 24px;
+}
+
+.summary-item strong {
+  color: #1e293b;
+  margin-right: 8px;
+}
+
+.confirm-question {
+  text-align: center;
+  font-weight: 500;
+  margin: 20px 0 0;
+  color: #1e293b;
+}
+
+.success-modal {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 64px;
+  color: #10b981;
+  margin-bottom: 16px;
+}
+
+.waiting-box {
+  background: #fef3c7;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #d97706;
+}
+
+.gotit-btn {
+  padding: 12px 24px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.gotit-btn:hover {
+  background: #059669;
+}
+/* Booking Summary Styles */
+.booking-summary {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-icon {
+  color: #FF9933;
+  font-size: 18px;
+  width: 24px;
+}
+
+.summary-item strong {
+  color: #1e293b;
+  margin-right: 8px;
+}
+
+.confirm-question {
+  text-align: center;
+  font-weight: 500;
+  margin: 20px 0 0;
+  color: #1e293b;
+}
+
+.success-modal {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 64px;
+  color: #10b981;
+  margin-bottom: 16px;
+}
+
+.waiting-box {
+  background: #fef3c7;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #d97706;
+}
+
+.gotit-btn {
+  padding: 12px 24px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.gotit-btn:hover {
+  background: #059669;
+}
+/* Add these styles at the end of the file */
+
+.required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.form-warning {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.confirm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.confirm-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

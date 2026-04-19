@@ -1,0 +1,415 @@
+.dashboard-page {
+  min-height: calc(100vh - 160px);
+  background: #f0f2f5;
+  padding: 40px 20px;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 32px;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.dashboard-subtitle {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.notifications {
+  margin-bottom: 24px;
+}
+
+.notification {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.stat-icon {
+  font-size: 36px;
+  color: #FF9933;
+  margin-bottom: 12px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.dashboard-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  background: #FF9933;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+}
+
+.profile-info {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.profile-info p {
+  color: #475569;
+  font-size: 14px;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 20px;
+  padding: 60px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.find-btn {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: #FF9933;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.bookings-grid, .requests-grid, .accepted-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.booking-card, .request-card, .accepted-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.booking-header, .request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.booking-header h3, .request-header h3 {
+  font-size: 18px;
+  color: #1e293b;
+}
+
+.booking-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-accepted {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-pending {
+  background: #fed7aa;
+  color: #92400e;
+}
+
+.status-pending-badge {
+  background: #fed7aa;
+  color: #92400e;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.booking-details, .request-details {
+  display: grid;
+  gap: 8px;
+}
+
+.booking-details p, .request-details p {
+  font-size: 14px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrival-message, .arrival-badge {
+  margin-top: 16px;
+  padding: 10px;
+  background: #fef3c7;
+  border-radius: 10px;
+  color: #d97706;
+  font-size: 13px;
+  text-align: center;
+}
+
+.accept-btn {
+  margin-top: 16px;
+  padding: 10px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+}
+
+.new-booking-btn {
+  width: 100%;
+  padding: 14px;
+  background: #FF9933;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-info {
+    grid-template-columns: 1fr;
+  }
+}
+/* Add these styles at the end of Dashboard.css */
+
+.volunteer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef3c7;
+  color: #d97706;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.pending-icon { color: #f59e0b; }
+.accepted-icon { color: #10b981; }
+.completed-icon { color: #3b82f6; }
+.rating-icon { color: #fbbf24; }
+
+.section-icon {
+  margin-right: 8px;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.areas-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.area-tag {
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.travel-info {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.empty-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+.special-instructions {
+  background: #fef3c7;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #92400e;
+}
+
+.status-accepted-badge {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.complete-btn {
+  margin-top: 16px;
+  padding: 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+}
+
+.complete-btn:hover {
+  background: #2563eb;
+}
+
+.completed-grid, .accepted-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.completed-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.completed-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.completed-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.completed-icon {
+  color: #10b981;
+  font-size: 20px;
+}
+
+.completed-card p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+.accepted-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.accepted-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.accepted-details p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
