@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaUser, FaHandsHelping } from 'react-icons/fa';
-import { login } from '../utils/api';
 import toast from 'react-hot-toast';
 import '../styles/Login.css';
 
@@ -11,6 +10,9 @@ const Login = ({ setIsAuthenticated, setUserRole, setUserData }) => {
   const [formData, setFormData] = useState({ email: '', password: '', role: 'user' });
   const [loading, setLoading] = useState(false);
 
+  // Direct API URL - no dependency on api.js
+  const API_URL = 'https://community-api-7o8i.onrender.com/api';
+
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
@@ -18,13 +20,23 @@ const Login = ({ setIsAuthenticated, setUserRole, setUserData }) => {
     setLoading(true);
     
     try {
-      const response = await login({ 
-        email: formData.email, 
-        password: formData.password, 
-        role: formData.role 
+      const response = await fetch(`${API_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          email: formData.email, 
+          password: formData.password, 
+          role: formData.role 
+        })
       });
       
-      const { token, user } = response.data;
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+      
+      const { token, user } = data;
       
       localStorage.setItem('token', token);
       localStorage.setItem('userRole', user.role);
@@ -39,7 +51,7 @@ const Login = ({ setIsAuthenticated, setUserRole, setUserData }) => {
       
     } catch (err) {
       console.error('Login error:', err);
-      toast.error(err.response?.data?.message || 'Login failed. Please try again.');
+      toast.error(err.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
