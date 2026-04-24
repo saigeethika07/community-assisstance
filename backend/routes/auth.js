@@ -7,7 +7,7 @@ const router = express.Router();
 // Register
 router.post('/register', async (req, res) => {
   try {
-    const { email, phone, password } = req.body;
+    const { email, phone, password, role } = req.body;
     
     const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
     if (existingUser) {
@@ -17,7 +17,38 @@ router.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     
-    const userData = { ...req.body, password: hashedPassword };
+    // Basic user data
+    const userData = {
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      password: hashedPassword,
+      role: req.body.role,
+      age: req.body.age,
+      gender: req.body.gender,
+      aadharLast4: req.body.aadharLast4,
+      experience: req.body.experience,
+      skills: req.body.skills,
+    };
+    
+    // Add role-specific data
+    if (role === 'user') {
+      // Resident data
+      userData.address = req.body.address;
+      userData.emergencyContact = req.body.emergencyContact;
+      userData.emergencyPhone = req.body.emergencyPhone;
+      userData.medicalConditions = req.body.medicalConditions;
+    } else if (role === 'volunteer') {
+      // Volunteer data - THIS MAKES NEW VOLUNTEERS APPEAR
+      userData.verified = true;
+      userData.serviceAreas = req.body.serviceAreas;
+      userData.travelDistance = req.body.travelDistance;
+      userData.preferredAreas = req.body.preferredAreas;
+      userData.availability = req.body.availability;
+      userData.servicesCompleted = 0;
+      userData.rating = 0;
+    }
+    
     const user = new User(userData);
     await user.save();
     
@@ -71,7 +102,10 @@ router.post('/login', async (req, res) => {
         role: user.role,
         address: user.address,
         skills: user.skills,
-        experience: user.experience
+        experience: user.experience,
+        serviceAreas: user.serviceAreas,
+        availability: user.availability,
+        verified: user.verified
       }
     });
   } catch (err) {
@@ -79,7 +113,8 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-// DEBUG: Get all users (remove after testing)
+
+// DEBUG: Get all users
 router.get('/users', async (req, res) => {
   try {
     const users = await User.find({}).select('-password');
@@ -88,4 +123,5 @@ router.get('/users', async (req, res) => {
     res.status(500).json({ message: 'Error' });
   }
 });
+
 module.exports = router;
